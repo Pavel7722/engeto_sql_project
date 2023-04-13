@@ -1,7 +1,9 @@
 # engeto_sql_project
 Engeto data analysis of Czechia grocery prices and payrolls in years 
 
-									Průvodní listina
+
+Průvodní listina
+
 
 Popis projektu:
 výzkum dostupnosti základních potravin široké veřejnosti v ČR na základě průměrných příjmů za určité časové období a vliv výše HDP.
@@ -13,7 +15,8 @@ Výzkumné otázky:
 4) Existuje rok, ve kterém byl meziroční nárůst cen potravin výrazně vyšší než růst mezd (větší než 10 %)?
 5) Má výška HDP vliv na změny ve mzdách a cenách potravin? Neboli, pokud HDP vzroste výrazněji v jednom roce, projeví se to na cenách      potravin či mzdách ve stejném nebo násdujícím roce výraznějším růstem?
 
-									Použité datové sady
+Použité datové sady
+
 Primární tabulky:
 czechia_payroll – Informace o mzdách v různých odvětvích za několikaleté období. Datová sada pochází z Portálu otevřených dat ČR.
 czechia_payroll_calculation – Číselník kalkulací v tabulce mezd.
@@ -31,7 +34,8 @@ Dodatečné tabulky:
 countries - Všemožné informace o zemích na světě, například hlavní město, měna, národní jídlo nebo průměrná výška populace.
 economies - HDP, GINI, daňová zátěž, atd. pro daný stát a rok.
 
-									Výstup projektu
+
+Výstup projektu
 
 Primární tabulka s názvem 't_pavel_zavodny_project_SQL_primary_final' byla vytvořena seskupením dat z tabulek 'czechia_price' a 'czechia_payroll'. Provázání dat bylo provedeno pomocí sloupců s hodnotami datumů na společné roky. Zároveň byly z tabulky 'czechia_price' vyřazeny záznamy ve sloupci s kódem krajů s hodnotami NULL, které vykazovaly průměry hodnot všech krajů za jednotlivé měsíce. Z tabulky 'czechia_payroll' byly vybrány pouze záznamy s hodnotou 'Průměrná hrubá mzda na zaměstnance'. Pro konkretizaci označení jmén komodit a průmyslových odvětví byly ještě připojeny tabulky 'czechia_price_category' a 'czechia_payroll_industry_branch'. Výsledná tabulka obsahuje data shromážděná ve sloupcích s kategoriemi potravin, jejich cenami, roky a druhy průmyslových odvětví s průměrnými mzdami. 
 
