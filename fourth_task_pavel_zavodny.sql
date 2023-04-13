@@ -14,7 +14,7 @@ FROM t_pavel_zavodny_project_sql_primary_final AS tpzpspf
 GROUP BY food_category,
 	`year` DESC;
 
--- percentage interannual differences of avarage grocery prices in years
+-- percentage differences of avarage grocery prices in years
 CREATE OR REPLACE VIEW v_pavel_zavodny_avg_grocery_price_perc_diff AS
 WITH grocery_prices_in_years AS (
 SELECT 
