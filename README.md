@@ -11,9 +11,9 @@ výzkum dostupnosti základních potravin široké veřejnosti v ČR na základ�
 Výzkumné otázky:
 1) Rostou v průběhu let mzdy ve všech odvětvích, nebo v některých klesají?
 2) Kolik je možné si koupit litrů mléka a kilogramů chleba za první a poslední srovnatelné období v dostupných datech cen a mezd?
-3) Která kategorie potravin zdražuje nejpomaleji (je u ní nejnižší percentuální meziroční nárůst)?
+3) Která kategorie potravin zdražuje nejpomaleji (je u ní nejnižší procentuální meziroční nárůst)?
 4) Existuje rok, ve kterém byl meziroční nárůst cen potravin výrazně vyšší než růst mezd (větší než 10 %)?
-5) Má výška HDP vliv na změny ve mzdách a cenách potravin? Neboli, pokud HDP vzroste výrazněji v jednom roce, projeví se to na cenách      potravin či mzdách ve stejném nebo násdujícím roce výraznějším růstem?
+5) Má výška HDP vliv na změny ve mzdách a cenách potravin? Neboli, pokud HDP vzroste výrazněji v jednom roce, projeví se to na cenách      potravin či mzdách ve stejném nebo následujícím roce výraznějším růstem?
 
 Použité datové sady
 
@@ -37,9 +37,9 @@ economies - HDP, GINI, daňová zátěž, atd. pro daný stát a rok.
 
 Výstup projektu
 
-Primární tabulka s názvem 't_pavel_zavodny_project_SQL_primary_final' byla vytvořena seskupením dat z tabulek 'czechia_price' a 'czechia_payroll'. Provázání dat bylo provedeno pomocí sloupců s hodnotami datumů na společné roky. Zároveň byly z tabulky 'czechia_price' vyřazeny záznamy ve sloupci s kódem krajů s hodnotami NULL, které vykazovaly průměry hodnot všech krajů za jednotlivé měsíce. Z tabulky 'czechia_payroll' byly vybrány pouze záznamy s hodnotou 'Průměrná hrubá mzda na zaměstnance'. Pro konkretizaci označení jmén komodit a průmyslových odvětví byly ještě připojeny tabulky 'czechia_price_category' a 'czechia_payroll_industry_branch'. Výsledná tabulka obsahuje data shromážděná ve sloupcích s kategoriemi potravin, jejich cenami, roky a druhy průmyslových odvětví s průměrnými mzdami. 
+Primární tabulka s názvem 't_pavel_zavodny_project_SQL_primary_final' byla vytvořena seskupením dat z tabulek 'czechia_price' a 'czechia_payroll'. Provázání dat bylo provedeno pomocí sloupců s hodnotami datumů na společné roky. Zároveň byly z tabulky 'czechia_price' vyřazeny záznamy ve sloupci s kódem krajů s hodnotami NULL, které vykazovaly průměry hodnot všech krajů za jednotlivé měsíce. Z tabulky 'czechia_payroll' byly vybrány pouze záznamy s hodnotou 'Průměrná hrubá mzda na zaměstnance'. Pro konkretizaci označení jmen komodit a průmyslových odvětví byly ještě připojeny tabulky 'czechia_price_category' a 'czechia_payroll_industry_branch'. Výsledná tabulka obsahuje data shromážděná ve sloupcích s kategoriemi potravin, jejich cenami, roky a druhy průmyslových odvětví s průměrnými mzdami. 
 
-Sekundární tabulka s názvem 't_pavel_zavodny_project_SQL_secondary_final' byla vytvořena z tabulky 'economies'. Byly vybrány pouze záznamy v letech 2006 až 2018, tak aby se shodovaly s roky primárního přehledu pro ČR. Vyselektovány byly NULL hodnoty ve sloupci gini koeficientů, které jsou pro větší územní celky, nikoliv samostatné státy. Výsledná tabulka obsahuje data shromážděná ve sloupcích se jmény států, let, HDP, gini koeficientů a velikostí populace.
+Sekundární tabulka s názvem 't_pavel_zavodny_project_SQL_secondary_final' byla vytvořena z tabulky 'economies'. Byly vybrány pouze záznamy v letech 2006 až 2018 tak, aby se shodovaly s roky primárního přehledu pro ČR. Vyselektovány byly NULL hodnoty ve sloupci gini koeficientů, které jsou pro větší územní celky, nikoliv samostatné státy. Výsledná tabulka obsahuje data shromážděná ve sloupcích se jmény států, let, HDP, gini koeficientů a velikostí populace.
 
 1) Rostou v průběhu let mzdy ve všech odvětvích, nebo v některých klesají?
 
@@ -49,11 +49,11 @@ Zjištění: V průběhu zkoumaných let docházelo v některých odvětvích i 
 
 2) Kolik je možné si koupit litrů mléka a kilogramů chleba za první a poslední srovnatelné období v dostupných datech cen a mezd?
 
-Z primární tabulky byl vytvořen pohled 'v_pavel_zavodny_prices' pro získání dat o průmerných cenách v letech 2006 a 2018 a druhý pohled 'v_pavel_zavodny_wages' pro získání dat o průmerných mzdách v letech. Třetím pohledem 'v_pavel_zavodny_bread_and_milk_vs_wages' byly získány data o průměrných cenách mléka a chlebu v letech 2006 a 2018 spolu s průměrnými mzdami ve stejných letch po spojení dvou předchozích pohledů.
+Z primární tabulky byl vytvořen pohled 'v_pavel_zavodny_prices' pro získání dat o průmerných cenách v letech 2006 a 2018 a druhý pohled 'v_pavel_zavodny_wages' pro získání dat o průmerných mzdách v letech. Třetím pohledem 'v_pavel_zavodny_bread_and_milk_vs_wages' byly získány data o průměrných cenách mléka a chlebu v letech 2006 a 2018 spolu s průměrnými mzdami ve stejných letech po spojení dvou předchozích pohledů.
  
 Zjištění: V roce 2006 bylo možné zakoupit 1.283 kg chleba a 1.340 kg v roce 2018. V roce 2006 bylo možné zakoupit 1.432 litrů mléka a 1.639 litrů v roce 2018.
 
-3) Která kategorie potravin zdražuje nejpomaleji (je u ní nejnižší percentuální meziroční nárůst)?
+3) Která kategorie potravin zdražuje nejpomaleji (je u ní nejnižší procentuální meziroční nárůst)?
 
 Z primární tabulky byl vytvořen pohled 'v_pavel_zavodny_grocery_prices' pro získání průměrných cen jednotlivých potravin v letech. Druhým pohledem 'v_pavel_zavodny_grocery_prices_perc_diff' byly získány procentuální meziroční rozdíly u jednotlivých potravin. Třetí pohled 'v_pavel_zavodny_avarage_grocery_prices_perc_diff' průměruje procentuální meziroční nárůst/pokles u jednotlivých kategorií za měřené roky a filtruje nejnižší hodnotu.
 
@@ -65,8 +65,8 @@ Z primární tabulky byl vytvořen pohled 'v_pavel_zavodny_grocery_prices' s pr�
 
 Zjištění:  Neexistuje rok s meziročním nárůstem cen potravin větším než 10% ve srovnání s meziročním nárůstem mezd. Největší meziroční difference 7,5% byla v roce 2013.
 
-5) Má výška HDP vliv na změny ve mzdách a cenách potravin? Neboli, pokud HDP vzroste výrazněji v jednom roce, projeví se to na cenách      potravin či mzdách ve stejném nebo násdujícím roce výraznějším růstem?
+5) Má výška HDP vliv na změny ve mzdách a cenách potravin? Neboli, pokud HDP vzroste výrazněji v jednom roce, projeví se to na cenách      potravin či mzdách ve stejném nebo následujícím roce výraznějším růstem?
 
 Ze sekundární tabulky byl vytvořen pohled 'v_pavel_zavodny_cz_gdp_diffs' s procentuálními meziročními rozdíly u HDP ČR v letech. Druhý pohled 'v_pavel_zavodny_cz_gdp_vs_grocery_and_wages' srovnává meziroční procentuální rozdíly u HDP, cen potravin a mezd v letech.
 
-Zjištění: Pokud HDP vzroste výrazněji v jednom roce, né vždy se to projeví na cenách potravin ve stejném nebo násdujícím roce výraznějším růstem.
+Zjištění: Pokud HDP vzroste výrazněji v jednom roce, ne vždy se to projeví na cenách potravin ve stejném nebo následujícím roce výraznějším růstem.
