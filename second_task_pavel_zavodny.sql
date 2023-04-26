@@ -13,7 +13,7 @@ FROM t_pavel_zavodny_project_sql_primary_final AS tpzpspf;
 SELECT 
 	DISTINCT(`year`) 
 FROM t_pavel_zavodny_project_sql_primary_final AS tpzpspf 
-WHERE food_category IN ('Mléko polotučné pasterované' , 
+WHERE food_category IN ('Mléko polotučné pasterované', 
 	'Chléb konzumní kmínový');
 
 -- prices of bread and milk in 2006 and 2018
@@ -23,7 +23,7 @@ SELECT
 	ROUND(AVG(prices) , 2) AS avarage_price,
 	`year`
 FROM t_pavel_zavodny_project_sql_primary_final AS tpzpspf 
-WHERE food_category IN ('Mléko polotučné pasterované' , 
+WHERE food_category IN ('Mléko polotučné pasterované', 
 	'Chléb konzumní kmínový') AND 
 	`year` IN ('2006' , '2018')
 GROUP BY `year`,
